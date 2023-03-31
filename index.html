@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shaky Number 1</title>
+    <title>일</title>
     <style>
         body {
             display: flex;
@@ -20,6 +20,7 @@
             font-weight: bold;
             animation: shake 0.1s infinite;
         }
+
 
         @keyframes shake {
             0% {
@@ -70,20 +71,38 @@
 </head>
 
 <body>
-    <div class="number" id="number">1</div>
+    <!-- <div class="number" id="number">1</div> -->
+    <div class="number" id="number">
+        1
+    </div>
     <script>
         let fontSize = 24;
         const numberElement = document.getElementById('number');
-
+        let change = false;
         function growShakyNumber() {
             fontSize += 1;
             numberElement.style.fontSize = fontSize + 'px';
-            if (fontSize > 900) {
-                fontSize = 24;
-            }
+            // if (fontSize > 900) {
+            //     fontSize = 24;
+            // }
         }
 
-        setInterval(growShakyNumber, 20);
+
+        function displayShhImage() {
+            document.body.innerHTML = '<img src="shh.png" alt="Shh" />';
+        }
+
+        function displayStarImage() {
+            document.body.innerHTML = '<img src="starOne.png" alt="Star One" />';
+            change = true;
+            console.log(change);
+            document.body.addEventListener('click', displayShhImage);
+
+
+        }
+        console.log(change);
+        document.body.addEventListener('click', displayStarImage);
+        const myInterval = setInterval(growShakyNumber, 20);
     </script>
 </body>
 
